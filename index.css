@@ -1,0 +1,31 @@
+.color {
+	background-color: black;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+}
+
+.new_color {
+	width: 100px;
+	height: 40px;
+	background-color: lightgreen;
+	border-radius: 5px;
+	margin: 100px;
+}
+
+.main {
+	display: flex;
+	justify-content: space-between;
+	height: 50%;
+	background-color: brown;
+}
+
+body {
+	margin: 40px;
+}
+
+header {
+	background-color: lightyellow;
+	width: 100%;
+	height: 70px;
+}
