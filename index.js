@@ -11,7 +11,7 @@ let addRandomColor = function(){
 		}
 
 		document.querySelector(".color-swatch").style.backgroundColor = hex;
-		document.querySelector(".hex-value").innerHTML = `Hex value : ${hex}`;
+		document.querySelector(".hex-value").value = hex;
 
 		let rgb = hexToRgb(hex).g;
 
@@ -31,12 +31,23 @@ let hexToRgb = function(hex) {
   	} : null;
 }
 
+let copyToClipboard = function() {
+	
+	let copyText = document.querySelector('.hex-value');
+	copyText.select();
+	document.execCommand("copy");
+
+}
+
 
 // Add color after document is loaded and ready
-window.addEventListener('load', addRandomColor)
+window.addEventListener('load', addRandomColor);
 
 //button generate new color
 document.querySelector('.new-color-button').addEventListener('click', addRandomColor);
+
+//copy to clipboard listener
+document.querySelector('.copy-hex-button').addEventListener('click', copyToClipboard);
 	
 
 }());

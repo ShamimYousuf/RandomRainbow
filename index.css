@@ -1,20 +1,24 @@
 .color-swatch {
 	background-color: #574d40;
 	height: 200px;
-	/*margin: 20px;*/
 	width: 200px;
 }
 
-.hex-value, .RGB-value {
-	/*padding: 20px;*/
+
+button {
+	background-color: #af9b81;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 40px;
+	width: 100px;
+}
+
+.hex-value {
+	width: 70px;
 }
 
 .new-color-button {
-	background-color: #af9b81;
-	border-radius: 5px;
-	height: 40px;
 	margin: 10px;
-	width: 100px;
 }
 
 .main {
