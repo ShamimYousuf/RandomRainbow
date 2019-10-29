@@ -1,34 +1,44 @@
 // IIFE
-(function d(){
+(function (){
 
 let addRandomColor = function(){
 
-		let hexletters = new Array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
-
-		let hex = '#';
-		for(i=0;i<6;i++){
-			hex = hex + hexletters[Math.floor(Math.random() * 16)];
-		}
+		let RGB = generateRandomRGBvalues();
+		let hex = convertRGBtoHex(RGB);
 
 		document.querySelector(".color-swatch").style.backgroundColor = hex;
 		document.querySelector(".hex-value").value = hex;
 
-		let rgb = hexToRgb(hex).g;
-
-		document.querySelector(".RGB-value").innerHTML = `RGB value : ${rgb}`;
+		document.querySelector(".RGB-value").innerHTML = `RGB value : ${RGB.red} ${RGB.green} ${RGB.blue}`;
 		
 }
 
+let convertRGBtoHex = function(RGBobj){
+	
+	let hexRed = Number(RGBobj.red).toString(16);
+	let hexGreen = Number(RGBobj.green).toString(16);
+	let hexBlue = Number(RGBobj.blue).toString(16);
 
-let hexToRgb = function(hex) {
-  
-  	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  
-  	return result ? {
-    	r: parseInt(result[1], 16),
-    	g: parseInt(result[2], 16),
-    	b: parseInt(result[3], 16)
-  	} : null;
+	return `#${hexRed}${hexGreen}${hexBlue}`
+}
+
+let generateRandomRGBvalues = function(){
+
+	let randomColourCode = function(){
+		return Math.floor((Math.random() * 256) + 1)
+	}
+
+	let red = randomColourCode();
+	let green = randomColourCode();
+	let blue = randomColourCode();
+
+	let RGBobj = {
+		red: red,
+		green: green,
+		blue: blue
+	}
+
+	return RGBobj;
 }
 
 let copyToClipboard = function() {
