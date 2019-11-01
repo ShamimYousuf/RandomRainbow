@@ -1,54 +1,45 @@
 // IIFE
 (function (){
 
-let addRandomColor = function(){
+const addRandomColor = () => {
 
-		let RGB = generateRandomRGBvalues();
-		let hex = convertRGBtoHex(RGB);
+		const RGB = generateRandomRGBvalues();
+		const hex = convertRGBtoHex(RGB);
 
 		document.querySelector(".color-swatch").style.backgroundColor = hex;
 		document.querySelector(".hex-value").value = hex;
 
-		document.querySelector(".RGB-value").innerHTML = `RGB value : ${RGB.red} ${RGB.green} ${RGB.blue}`;
+		const {red, green, blue} = RGB;
 		
+		document.querySelector(".RGB-value").innerHTML = `RGB value : ${red} ${green} ${blue}`;	
 }
 
-let convertRGBtoHex = function(RGBobj){
+const convertRGBtoHex = (RGBobj) => {
 	
-	let hexRed = Number(RGBobj.red).toString(16);
-	let hexGreen = Number(RGBobj.green).toString(16);
-	let hexBlue = Number(RGBobj.blue).toString(16);
+	const hexRed = RGBobj.red.toString(16);
+	const hexGreen = RGBobj.green.toString(16);
+	const hexBlue = RGBobj.blue.toString(16);
 
 	return `#${hexRed}${hexGreen}${hexBlue}`
 }
 
-let generateRandomRGBvalues = function(){
+const generateRandomRGBvalues = () => {
 
-	let randomColourCode = function(){
-		return Math.floor((Math.random() * 256) + 1)
-	}
-
-	let red = randomColourCode();
-	let green = randomColourCode();
-	let blue = randomColourCode();
-
-	let RGBobj = {
-		red: red,
-		green: green,
-		blue: blue
-	}
-
-	return RGBobj;
+	const randomColourCode = () =>  Math.floor((Math.random() * 255));
+	
+	return {red: randomColourCode(), 
+		    green: randomColourCode(), 
+		    blue: randomColourCode()
+		   };
 }
 
-let copyToClipboard = function() {
+const copyToClipboard = function() {
 	
-	let copyText = document.querySelector('.hex-value');
+	const copyText = document.querySelector('.hex-value');
 	copyText.select();
 	document.execCommand("copy");
 
 }
-
 
 // Add color after document is loaded and ready
 window.addEventListener('load', addRandomColor);
