@@ -45,6 +45,7 @@ const convertHexToRGB = (hex) => {
 	return {red, green, blue};
 }
 
+
 // Add color after document is loaded and ready
 window.addEventListener('load', addRandomColor);
 
