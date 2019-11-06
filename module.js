@@ -48,7 +48,11 @@ document.querySelector('.new-color-button').addEventListener('click', addRandomC
 document.querySelector('.copy-hex-button').addEventListener('click', copyToClipboard);
 
 //change color
-
+document.querySelector('#colorpicker').addEventListener('input', function(event) {
+	const hex = event.target.value;
+	document.querySelector(".color-swatch").style.backgroundColor = hex;
+	document.querySelector(".hex-value").value = hex;
+})
 
 
 return {
