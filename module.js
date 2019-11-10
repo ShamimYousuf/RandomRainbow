@@ -1,4 +1,4 @@
-var rainbowRiches = ( function () {
+var rainbowRiches = function () {
 
 const addRandomColor = () => {
 	const RGB = generateRandomRGBvalues();
@@ -70,5 +70,7 @@ return {
 	convertHexToRGB: convertHexToRGB
 }
 
-})();
+};
+
+rainbowRiches();
 
