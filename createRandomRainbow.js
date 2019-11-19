@@ -26,11 +26,14 @@ var randonRainbowAppCreator =  function() {
 
 	};
 
+	const  render = () => {
+		createHeader();
+		createApp();
+	}
+
 	return {
-		createHeader: createHeader,
-		createApp: createApp
+		render
 	}
 }
 
-randonRainbowAppCreator().createHeader();
-randonRainbowAppCreator().createApp();
+randonRainbowAppCreator().render();
