@@ -4,7 +4,6 @@ var rainbowRiches = function () {
 		createHeader(selector);
 	}
 
-
 	const createHeader = (selector) => {
 		let header = document.createElement('HEADER');
 		document.querySelector(selector).appendChild(header);
@@ -96,9 +95,12 @@ document.querySelector('#colorpicker').addEventListener('input', function(event)
 	document.querySelector(".RGB-value").innerHTML = `RGB value : ${red} ${green} ${blue}`;	
 })
 
+init('#main');
+
 return {
 	changeColor: changeColor,
-	convertHexToRGB: convertHexToRGB
+	convertHexToRGB: convertHexToRGB,
+	init: init
 }
 
 };
